@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Wedding 2027 · Moodboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+/* =====================================================================
+   설정 — 이 블록만 고치면 됩니다.
+   · 핀 추가/삭제: 핀터레스트에서 하면 페이지에 자동 반영 (설정 수정 불필요)
+   · 새 섹션을 만들었을 때만: SECTIONS 에 한 줄 추가
+   · slug = 핀터레스트 섹션 주소의 마지막 부분 (예: .../wedding/hair+makeup/)
+   ===================================================================== */
+const CONFIG = {
+  user: "oozoo_with",
+  board: "wedding",
+  title: "Our Wedding",
+  subtitle: "2027 · 웨딩 무드보드",
+  intro: "준비하면서 모으고 있는 레퍼런스입니다. 사진을 누르면 크게 볼 수 있어요.",
+
+  SECTIONS: [
+    { slug: "venue",        title: "웨딩홀",          en: "Venue",        memo: "" },
+    { slug: "snap-outdoor", title: "야외 스냅",        en: "Snap · Outdoor", memo: "" },
+    { slug: "dress",        title: "드레스",          en: "Dress",        memo: "" },
+    { slug: "hair+makeup",  title: "헤어 · 메이크업",   en: "Hair & Makeup", memo: "" },
+    { slug: "bouquet",      title: "부케",            en: "Bouquet",      memo: "" },
+    { slug: "props",        title: "소품",            en: "Props",        memo: "" },
+  ],
+
+  /* 핀별 메모 (선택). 핀 ID는 페이지 주소 끝에 #edit 를 붙여 열면 사진마다 표시됩니다.
+     예) "455708056085122598": "★ 1순위 — 이 느낌으로 상담 예정", */
+  PIN_MEMOS: {
+  },
+};
+</script>
+<style>
+  :root {
+    --bg: #faf8f5; --ink: #2b2724; --muted: #8a827a; --line: #e7e1d9;
+    --accent: #9c7f63; --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font-family: "Noto Sans KR", system-ui, sans-serif; font-weight: 300; line-height: 1.6; }
+  header { text-align: center; padding: 72px 20px 36px; }
+  header .eyebrow { letter-spacing: .3em; font-size: 11px; color: var(--muted); text-transform: uppercase; }
+  header h1 { font-family: "Cormorant Garamond", serif; font-weight: 400; font-size: clamp(40px, 8vw, 64px);
+              margin: 8px 0 4px; letter-spacing: .02em; }
+  header p { color: var(--muted); font-size: 14px; margin: 6px auto 0; max-width: 520px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(250,248,245,.92);
+        backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .inner { display: flex; gap: 8px; overflow-x: auto; padding: 12px 16px; max-width: 1200px; margin: 0 auto;
+               scrollbar-width: none; justify-content: safe center; }
+  nav .inner::-webkit-scrollbar { display: none; }
+  nav a { flex: none; text-decoration: none; color: var(--ink); font-size: 13px; padding: 6px 14px;
+          border: 1px solid var(--line); border-radius: 999px; background: var(--card); white-space: nowrap; }
+  nav a:hover { border-color: var(--accent); color: var(--accent); }
+  nav a .n { color: var(--muted); margin-left: 4px; font-size: 12px; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 8px 16px 80px; }
+  section { padding-top: 48px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .sec-head h2 { font-weight: 500; font-size: 22px; margin: 0; }
+  .sec-head .en { font-family: "Cormorant Garamond", serif; font-size: 18px; color: var(--muted); font-style: italic; }
+  .sec-head .count { margin-left: auto; font-size: 12px; color: var(--muted); }
+  .memo { background: var(--card); border-left: 3px solid var(--accent); padding: 10px 14px; margin: 10px 0 16px;
+          font-size: 14px; white-space: pre-line; }
+
+  .grid { columns: 4 220px; column-gap: 12px; margin-top: 14px; }
+  .pin { break-inside: avoid; margin: 0 0 12px; position: relative; cursor: zoom-in; border-radius: 10px;
+         overflow: hidden; background: var(--line); display: block; width: 100%; border: 0; padding: 0; }
+  .pin img { display: block; width: 100%; height: auto; transition: transform .4s ease; }
+  .pin:hover img { transform: scale(1.03); }
+  .pin .tag { position: absolute; left: 8px; bottom: 8px; right: 8px; background: rgba(255,255,255,.92);
+              font-size: 12px; padding: 4px 8px; border-radius: 6px; text-align: left; color: var(--ink); }
+  .pin .pid { position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,.6); color: #fff;
+              font: 11px ui-monospace, monospace; padding: 2px 6px; border-radius: 4px; user-select: all; }
+  @media (max-width: 600px) {
+    .grid { columns: 2; column-gap: 8px; }
+    .pin { margin-bottom: 8px; border-radius: 8px; }
+    header { padding: 48px 20px 28px; }
+  }
+  .status { color: var(--muted); font-size: 13px; padding: 20px 0; }
+  .more { display: inline-block; margin-top: 4px; font-size: 13px; color: var(--accent); }
+  .skeleton { height: 220px; border-radius: 10px; background: linear-gradient(90deg,#eee8e0 0%,#f5f0ea 50%,#eee8e0 100%);
+              background-size: 200% 100%; animation: sh 1.2s infinite; margin-bottom: 12px; break-inside: avoid; }
+  @keyframes sh { to { background-position: -200% 0; } }
+
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(20,18,16,.92); display: none;
+        align-items: center; justify-content: center; flex-direction: column; padding: 56px 16px 24px; }
+  .lb.open { display: flex; }
+  .lb img { max-width: min(92vw, 720px); max-height: 74vh; border-radius: 8px; object-fit: contain; }
+  .lb .cap { color: #f3eee8; margin-top: 14px; text-align: center; max-width: 640px; font-size: 14px; }
+  .lb .cap .m { white-space: pre-line; margin-bottom: 10px; }
+  .lb .links a { color: #d9c7b4; font-size: 13px; margin: 0 8px; }
+  .lb button { position: absolute; background: none; border: 0; color: #fff; font-size: 28px; cursor: pointer;
+               padding: 8px 14px; line-height: 1; }
+  .lb .x { top: 8px; right: 8px; }
+  .lb .prev { left: 4px; top: 50%; transform: translateY(-50%); }
+  .lb .next { right: 4px; top: 50%; transform: translateY(-50%); }
+  footer { text-align: center; color: var(--muted); font-size: 12px; padding: 0 16px 48px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow" id="sub"></div>
+  <h1 id="ttl"></h1>
+  <p id="intro"></p>
+</header>
+<nav><div class="inner" id="nav"></div></nav>
+<main id="main"></main>
+<footer>사진은 핀터레스트 보드에서 실시간으로 불러옵니다 ·
+  <a id="boardlink" target="_blank" rel="noopener">Pinterest 보드</a></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="x" aria-label="닫기">×</button>
+  <button class="prev" aria-label="이전">‹</button>
+  <button class="next" aria-label="다음">›</button>
+  <img id="lbimg" alt="">
+  <div class="cap"><div class="m" id="lbmemo"></div><div class="links" id="lblinks"></div></div>
+</div>
+
+<script>
+(function () {
+  const C = CONFIG, $ = (s) => document.querySelector(s);
+  const EDIT = location.hash === "#edit";
+  const boardURL = `https://www.pinterest.com/${C.user}/${C.board}/`;
+  $("#ttl").textContent = C.title; $("#sub").textContent = C.subtitle; $("#intro").textContent = C.intro;
+  $("#boardlink").href = boardURL;
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const idOf = (s) => "s-" + s.slug.replace(/[^a-z0-9]+/gi, "-");
+
+  // Build skeleton sections + nav
+  const nav = $("#nav"), main = $("#main");
+  C.SECTIONS.forEach((s) => {
+    nav.insertAdjacentHTML("beforeend", `<a href="#${idOf(s)}">${esc(s.title)}<span class="n" data-n="${idOf(s)}"></span></a>`);
+    main.insertAdjacentHTML("beforeend", `
+      <section id="${idOf(s)}">
+        <div class="sec-head"><h2>${esc(s.title)}</h2><span class="en">${esc(s.en || "")}</span>
+          <span class="count" data-c="${idOf(s)}"></span></div>
+        ${s.memo ? `<div class="memo">${esc(s.memo)}</div>` : ""}
+        <div class="grid" data-g="${idOf(s)}">${'<div class="skeleton"></div>'.repeat(4)}</div>
+      </section>`);
+  });
+
+  // JSONP loader — the same public endpoint Pinterest's official board widget uses
+  let seq = 0;
+  function jsonp(url, timeout = 15000) {
+    return new Promise((resolve, reject) => {
+      const cb = "__pin_cb" + (seq++);
+      const sc = document.createElement("script");
+      const t = setTimeout(() => { cleanup(); reject(new Error("timeout")); }, timeout);
+      function cleanup() { clearTimeout(t); delete window[cb]; sc.remove(); }
+      window[cb] = (data) => { cleanup(); resolve(data); };
+      sc.onerror = () => { cleanup(); reject(new Error("network")); };
+      sc.src = url + (url.includes("?") ? "&" : "?") + "callback=" + cb;
+      document.head.appendChild(sc);
+    });
+  }
+
+  const allPins = []; // for lightbox navigation (in page order)
+  const sectionPins = {};
+
+  function render(s, pins) {
+    const id = idOf(s), g = main.querySelector(`[data-g="${id}"]`);
+    sectionPins[id] = pins;
+    main.querySelector(`[data-c="${id}"]`).textContent = pins.length ? `${pins.length}장` : "";
+    nav.querySelector(`[data-n="${id}"]`).textContent = pins.length || "";
+    if (!pins.length) { g.outerHTML = `<div class="status">아직 사진이 없어요.</div>`; return; }
+    g.innerHTML = pins.map((p, i) => {
+      const img = p.images["564x"] || p.images["236x"];
+      const w = img.width, h = img.height;
+      const memo = C.PIN_MEMOS[p.id];
+      return `<button class="pin" data-sec="${id}" data-i="${i}" style="background:${esc(p.dominant_color || "#e7e1d9")}">
+        <img src="${esc(img.url)}" width="${w}" height="${h}" loading="lazy" alt="${esc(s.title)} 레퍼런스 ${i + 1}">
+        ${memo ? `<span class="tag">${esc(memo.split("\n")[0])}</span>` : ""}
+        ${EDIT ? `<span class="pid">${esc(p.id)}</span>` : ""}
+      </button>`;
+    }).join("");
+    if (pins.length >= 50) {
+      g.insertAdjacentHTML("afterend",
+        `<a class="more" target="_blank" rel="noopener" href="${boardURL}${encodeURIComponent(s.slug).replace(/%2B/g, "+")}/">최근 50장만 표시됩니다 · 전체 보기 →</a>`);
+    }
+  }
+
+  function fail(s) {
+    const id = idOf(s), g = main.querySelector(`[data-g="${id}"]`);
+    g.outerHTML = `<div class="status">불러오지 못했어요. <a class="more" target="_blank" rel="noopener"
+      href="${boardURL}${s.slug}/">핀터레스트에서 보기 →</a></div>`;
+  }
+
+  Promise.all(C.SECTIONS.map((s) =>
+    jsonp(`https://widgets.pinterest.com/v3/pidgets/sections/${C.user}/${C.board}/${encodeURIComponent(s.slug).replace(/%2B/g, "+")}/pins/`)
+      .then((r) => {
+        if (r.status !== "success" || !r.data) throw new Error(r.message || "bad");
+        render(s, (r.data.pins || []).filter((p) => p.images));
+      })
+      .catch(() => fail(s))
+  )).then(() => {
+    C.SECTIONS.forEach((s) => (sectionPins[idOf(s)] || []).forEach((p, i) => allPins.push({ sec: idOf(s), i, p })));
+  });
+
+  // Lightbox
+  const lb = $("#lb"), lbimg = $("#lbimg"), lbmemo = $("#lbmemo"), lblinks = $("#lblinks");
+  let cur = -1;
+  function show(k) {
+    if (!allPins.length) return;
+    cur = (k + allPins.length) % allPins.length;
+    const { p } = allPins[cur];
+    lbimg.src = (p.images["564x"] || p.images["236x"]).url;
+    lbmemo.textContent = C.PIN_MEMOS[p.id] || "";
+    const src = p.link && /^https?:/.test(p.link) ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">원본 출처</a>` : "";
+    lblinks.innerHTML = src + `<a href="https://www.pinterest.com/pin/${esc(p.id)}/" target="_blank" rel="noopener">Pinterest</a>`;
+    lb.classList.add("open"); document.body.style.overflow = "hidden";
+  }
+  function close() { lb.classList.remove("open"); document.body.style.overflow = ""; lbimg.src = ""; }
+  main.addEventListener("click", (e) => {
+    const b = e.target.closest(".pin"); if (!b) return;
+    const k = allPins.findIndex((x) => x.sec === b.dataset.sec && x.i === +b.dataset.i);
+    if (k >= 0) show(k);
+  });
+  lb.querySelector(".x").onclick = close;
+  lb.querySelector(".prev").onclick = (e) => { e.stopPropagation(); show(cur - 1); };
+  lb.querySelector(".next").onclick = (e) => { e.stopPropagation(); show(cur + 1); };
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close(); else if (e.key === "ArrowLeft") show(cur - 1); else if (e.key === "ArrowRight") show(cur + 1);
+  });
+  let sx = null;
+  lb.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>
+</body>
+</html>
